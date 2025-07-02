@@ -86,11 +86,11 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Main heading with enhanced typography */}
+          {/* Main heading with enhanced typography - removed glow effect */}
           <div className="space-y-8 animate-slide-up">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] tracking-tight">
               Explore the
-              <span className="block text-gradient-primary bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-glow"> 
+              <span className="block text-gradient-primary bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"> 
                 Universe 
               </span>
               of Learning

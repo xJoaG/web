@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
+import DeviceCompatibility from '../components/DeviceCompatibility';
 import Courses from '../components/Courses';
 import Stats from '../components/Stats';
 import Testimonials from '../components/Testimonials';
@@ -17,6 +18,7 @@ const HomePage: React.FC = () => {
       <Navbar />
       <Hero />
       <Features />
+      <DeviceCompatibility />
       <Stats />
       <Courses />
       <Testimonials />
