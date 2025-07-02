@@ -136,15 +136,15 @@ const Navbar: React.FC = () => {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-morphism border-b border-white/10 py-2' : 'bg-transparent py-4'
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled ? 'glass-morphism border-b border-white/10 py-2 animate-slide-down' : 'bg-transparent py-4 animate-fade-in'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Enhanced Logo */}
-            <div className="flex items-center space-x-3 group cursor-pointer">
+            {/* Enhanced Logo with Animation */}
+            <div className="flex items-center space-x-3 group cursor-pointer animate-slide-right">
               <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform duration-300">
+                <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-xl group-hover:rotate-12 transition-transform duration-300 group-hover:scale-110">
                   <Globe className="h-7 w-7 text-white" />
                 </div>
                 <div className="absolute inset-0 w-12 h-12 bg-indigo-400/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
@@ -157,29 +157,31 @@ const Navbar: React.FC = () => {
               </div>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation with Staggered Animation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="relative text-gray-300 hover:text-white transition-colors duration-300 font-semibold text-lg group"
+                  className="relative text-gray-300 hover:text-white transition-all duration-300 font-semibold text-lg group animate-fade-in"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute inset-0 bg-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 scale-110"></span>
                 </a>
               ))}
             </div>
 
-            {/* Auth Buttons / User Menu */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Auth Buttons / User Menu with Animation */}
+            <div className="hidden md:flex items-center space-x-4 animate-slide-left">
               {user ? (
                 <div className="relative">
                   <button
                     onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-                    className="flex items-center space-x-3 glass-morphism rounded-full px-6 py-3 hover:bg-white/20 transition-all duration-300 group border border-white/20"
+                    className="flex items-center space-x-3 glass-morphism rounded-full px-6 py-3 hover:bg-white/20 transition-all duration-300 group border border-white/20 hover:scale-105"
                   >
-                    <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                       <User className="h-5 w-5 text-white" />
                     </div>
                     <div className="text-left">
@@ -197,13 +199,13 @@ const Navbar: React.FC = () => {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => openAuthModal('login')}
-                    className="text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 text-lg"
+                    className="text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-all duration-300 text-lg hover:scale-105"
                   >
                     Sign In
                   </button>
                   <button
                     onClick={() => openAuthModal('register')}
-                    className="btn-primary text-lg px-8 py-3 flex items-center space-x-2"
+                    className="btn-primary text-lg px-8 py-3 flex items-center space-x-2 hover:scale-105"
                   >
                     <Crown className="h-5 w-5" />
                     <span>Start Free</span>
@@ -212,33 +214,34 @@ const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Mobile menu button with Animation */}
+            <div className="md:hidden animate-fade-in">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-300 hover:text-white transition-colors duration-200 p-2"
+                className="text-gray-300 hover:text-white transition-colors duration-200 p-2 hover:bg-white/10 rounded-lg"
               >
                 {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
               </button>
             </div>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation with Slide Animation */}
           {isOpen && (
-            <div className="md:hidden py-6 border-t border-white/10 animate-fade-in">
+            <div className="md:hidden py-6 border-t border-white/10 animate-slide-down">
               <div className="flex flex-col space-y-4">
-                {navItems.map((item) => (
+                {navItems.map((item, index) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-gray-300 hover:text-white transition-colors duration-200 font-semibold px-4 py-3 rounded-lg hover:bg-white/10 text-lg"
+                    className="text-gray-300 hover:text-white transition-colors duration-200 font-semibold px-4 py-3 rounded-lg hover:bg-white/10 text-lg animate-slide-right"
+                    style={{ animationDelay: `${index * 50}ms` }}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
                   </a>
                 ))}
                 {user ? (
-                  <div className="border-t border-white/10 pt-4 mt-4">
+                  <div className="border-t border-white/10 pt-4 mt-4 animate-fade-in">
                     <div className="flex items-center space-x-3 px-4 py-3 mb-4">
                       <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center">
                         <User className="h-5 w-5 text-white" />
@@ -260,7 +263,7 @@ const Navbar: React.FC = () => {
                     </button>
                   </div>
                 ) : (
-                  <div className="flex flex-col space-y-3 pt-4 border-t border-white/10">
+                  <div className="flex flex-col space-y-3 pt-4 border-t border-white/10 animate-fade-in">
                     <button
                       onClick={() => {
                         openAuthModal('login');

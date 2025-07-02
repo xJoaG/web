@@ -1,6 +1,6 @@
 import React from 'react';
 import Spline from '@splinetool/react-spline';
-import { Smartphone, Tablet, Monitor, Laptop, Wifi, Zap, Globe, Shield } from 'lucide-react';
+import { Smartphone, Tablet, Monitor, Laptop, Wifi, Zap, Globe, Shield, Download, Apple } from 'lucide-react';
 
 const DeviceCompatibility: React.FC = () => {
   const devices = [
@@ -76,18 +76,63 @@ const DeviceCompatibility: React.FC = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* 3D Spline Viewer */}
+          {/* 3D Phone with proper sizing */}
           <div className="relative">
             <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 shadow-2xl">
-              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center relative z-10">
-                <Spline 
-                  scene="https://prod.spline.design/p8MZXfLocd0gyn17/scene.splinecode"
-                  style={{ width: '100%', height: '100%' }}
-                />
+              <div className="flex justify-center items-center relative z-10">
+                <div style={{ width: '265px', height: '418px' }} className="rounded-2xl overflow-hidden">
+                  <Spline 
+                    scene="https://prod.spline.design/p8MZXfLocd0gyn17/scene.splinecode"
+                    style={{ width: '100%', height: '100%' }}
+                  />
+                </div>
               </div>
               <div className="mt-6 text-center">
                 <h3 className="text-xl font-bold text-white mb-2">Interactive 3D Experience</h3>
                 <p className="text-gray-300">Experience our platform across all your devices</p>
+              </div>
+            </div>
+
+            {/* Content below phone */}
+            <div className="mt-8 space-y-6">
+              <div className="text-center">
+                <h4 className="text-lg font-semibold text-white mb-4">Fully Working on All Devices</h4>
+                <p className="text-gray-300 mb-6">
+                  Access your courses seamlessly across mobile, tablet, laptop, and desktop with synchronized progress.
+                </p>
+              </div>
+
+              {/* Coming Soon Apps */}
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                <h5 className="text-white font-semibold mb-4 text-center">Mobile Apps Coming Soon</h5>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {/* Google Play Store - Greyed Out */}
+                  <div className="flex items-center justify-center bg-gray-600/30 text-gray-500 px-6 py-3 rounded-xl border border-gray-500/30 cursor-not-allowed opacity-60">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-gray-500 rounded-sm flex items-center justify-center">
+                        <div className="w-4 h-4 bg-gray-400 rounded-sm"></div>
+                      </div>
+                      <div>
+                        <div className="text-xs text-gray-400">GET IT ON</div>
+                        <div className="text-sm font-semibold">Google Play</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* App Store - Greyed Out */}
+                  <div className="flex items-center justify-center bg-gray-600/30 text-gray-500 px-6 py-3 rounded-xl border border-gray-500/30 cursor-not-allowed opacity-60">
+                    <div className="flex items-center space-x-3">
+                      <Apple className="w-6 h-6 text-gray-500" />
+                      <div>
+                        <div className="text-xs text-gray-400">Download on the</div>
+                        <div className="text-sm font-semibold">App Store</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-center text-gray-400 text-sm mt-4">
+                  Native mobile apps launching Q2 2024
+                </p>
               </div>
             </div>
           </div>
@@ -131,7 +176,7 @@ const DeviceCompatibility: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <button className="flex-1 bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-indigo-600 hover:to-purple-700 transition-all duration-200 flex items-center justify-center space-x-2">
                 <Smartphone className="h-5 w-5" />
-                <span>Download App</span>
+                <span>Try Web App</span>
               </button>
               <button className="flex-1 bg-white/10 backdrop-blur-sm text-white py-3 px-6 rounded-xl font-semibold hover:bg-white/20 transition-all duration-200 border border-white/20 flex items-center justify-center space-x-2">
                 <Globe className="h-5 w-5" />
