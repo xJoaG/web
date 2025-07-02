@@ -1,4 +1,5 @@
 import React from 'react';
+import Spline from '@splinetool/react-spline';
 import { Smartphone, Tablet, Monitor, Laptop, Wifi, Zap, Globe, Shield } from 'lucide-react';
 
 const DeviceCompatibility: React.FC = () => {
@@ -78,10 +79,10 @@ const DeviceCompatibility: React.FC = () => {
           {/* 3D Spline Viewer */}
           <div className="relative">
             <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 shadow-2xl">
-              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/20 to-purple-500/20">
-                <spline-viewer 
-                  url="https://prod.spline.design/p8MZXfLocd0gyn17/scene.splinecode"
-                  className="w-full h-full"
+              <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center relative z-10">
+                <Spline 
+                  scene="https://prod.spline.design/p8MZXfLocd0gyn17/scene.splinecode"
+                  style={{ width: '100%', height: '100%' }}
                 />
               </div>
               <div className="mt-6 text-center">

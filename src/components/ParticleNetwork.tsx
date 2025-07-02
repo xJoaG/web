@@ -182,7 +182,7 @@ const ParticleNetwork: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-[6]" // Changed z-index to 6
+      className="fixed inset-0 pointer-events-none z-[1]" // Changed z-index to 1 to stay behind everything
       style={{ background: 'transparent' }}
     />
   );

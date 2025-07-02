@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { MessageCircle, X, Sparkles, Send, Minimize2, Maximize2, Zap, BookOpen, Crown, Bot, Cpu, Wifi } from 'lucide-react';
+import { MessageCircle, X, Sparkles, Send, Minimize2, Maximize2, Zap, BookOpen, Crown, Bot, Cpu, Wifi, Brain, Monitor } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -134,11 +134,11 @@ const TutorWidget: React.FC = () => {
       case 'blink':
         return 'h-1';
       case 'processing':
-        return 'h-3 bg-blue-400 animate-pulse';
+        return 'h-2 bg-indigo-400 animate-pulse';
       case 'happy':
-        return 'h-3 bg-green-400';
+        return 'h-2 bg-green-400';
       default:
-        return 'h-3 bg-cyan-400';
+        return 'h-2 bg-indigo-400';
     }
   };
 
@@ -151,14 +151,14 @@ const TutorWidget: React.FC = () => {
         }`}>
           <div className="glass-morphism rounded-3xl shadow-2xl border border-white/30 h-full flex flex-col overflow-hidden">
             {/* Gradient border effect */}
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-lg -z-10"></div>
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-lg -z-10"></div>
             
             {/* Premium Header */}
-            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-gradient-to-r from-cyan-500/10 to-blue-500/10">
+            <div className="flex items-center justify-between p-6 border-b border-white/10 bg-gradient-to-r from-indigo-500/10 to-purple-500/10">
               <div className="flex items-center space-x-4">
                 <div className="relative">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-500 flex items-center justify-center shadow-xl">
-                    <Bot size={24} className="text-white" />
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-xl">
+                    <Brain size={24} className="text-white" />
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-400 rounded-full border-2 border-white animate-pulse flex items-center justify-center">
                     <Wifi className="h-3 w-3 text-white" />
@@ -167,7 +167,7 @@ const TutorWidget: React.FC = () => {
                 <div>
                   <h3 className="text-white font-bold text-xl flex items-center space-x-2">
                     <span>ARIA AI</span>
-                    <Cpu className="h-5 w-5 text-cyan-400" />
+                    <Cpu className="h-5 w-5 text-indigo-400" />
                   </h3>
                   <p className="text-gray-300 text-sm">Advanced Learning Assistant</p>
                 </div>
@@ -200,7 +200,7 @@ const TutorWidget: React.FC = () => {
                       <div
                         className={`max-w-[85%] p-4 rounded-2xl ${
                           message.isUser
-                            ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg'
+                            ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg'
                             : 'glass-morphism-dark text-white border border-white/10 shadow-xl'
                         }`}
                       >
@@ -217,9 +217,9 @@ const TutorWidget: React.FC = () => {
                       <div className="glass-morphism-dark p-4 rounded-2xl border border-white/10">
                         <div className="flex items-center space-x-3">
                           <div className="flex space-x-1">
-                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                            <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce"></div>
+                            <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                            <div className="w-2 h-2 bg-pink-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                           </div>
                           <span className="text-gray-300 text-sm">ARIA is processing...</span>
                         </div>
@@ -245,7 +245,7 @@ const TutorWidget: React.FC = () => {
                 </div>
 
                 {/* Premium Input Area */}
-                <div className="p-6 border-t border-white/10 bg-gradient-to-r from-cyan-500/5 to-blue-500/5">
+                <div className="p-6 border-t border-white/10 bg-gradient-to-r from-indigo-500/5 to-purple-500/5">
                   <div className="flex space-x-3">
                     <input
                       ref={inputRef}
@@ -259,7 +259,7 @@ const TutorWidget: React.FC = () => {
                     <button
                       onClick={() => handleSendMessage()}
                       disabled={!inputMessage.trim()}
-                      className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2 hover:from-cyan-600 hover:to-blue-700 transition-all duration-200"
+                      className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2 hover:from-indigo-600 hover:to-purple-700 transition-all duration-200"
                     >
                       <Send size={16} />
                     </button>
@@ -271,74 +271,75 @@ const TutorWidget: React.FC = () => {
         </div>
       )}
 
-      {/* Advanced Robot Avatar */}
+      {/* Redesigned Robot Avatar - More Cohesive with Site */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className={`relative w-24 h-24 cursor-pointer transition-all duration-500 ${getRobotAnimation()} hover:scale-110`}
+        className={`relative w-20 h-20 cursor-pointer transition-all duration-500 ${getRobotAnimation()} hover:scale-110`}
       >
-        {/* Robot body with metallic gradient */}
-        <div className="relative w-full h-full bg-gradient-to-br from-slate-300 via-slate-400 to-slate-600 rounded-2xl shadow-2xl border-4 border-cyan-400/60 overflow-hidden">
+        {/* Robot body with site-matching gradient */}
+        <div className="relative w-full h-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl shadow-2xl border-2 border-white/20 overflow-hidden">
           
           {/* Robot face design */}
           <div className="absolute inset-0 flex flex-col items-center justify-center">
             {/* Eyes */}
-            <div className="flex space-x-3 mb-3">
-              <div className={`w-4 ${getEyeStyle()} bg-cyan-400 rounded-full transition-all duration-300`}></div>
-              <div className={`w-4 ${getEyeStyle()} bg-cyan-400 rounded-full transition-all duration-300`}></div>
+            <div className="flex space-x-2 mb-2">
+              <div className={`w-3 ${getEyeStyle()} bg-white rounded-full transition-all duration-300`}></div>
+              <div className={`w-3 ${getEyeStyle()} bg-white rounded-full transition-all duration-300`}></div>
             </div>
             
             {/* Mouth/Speaker */}
-            <div className={`w-6 h-2 rounded-full ${
-              robotMood === 'excited' ? 'bg-green-400' : robotMood === 'thinking' ? 'bg-blue-400 animate-pulse' : 'bg-gray-600'
+            <div className={`w-4 h-1 rounded-full ${
+              robotMood === 'excited' ? 'bg-green-300' : robotMood === 'thinking' ? 'bg-blue-300 animate-pulse' : 'bg-white/80'
             } transition-colors duration-300`}></div>
 
-            {/* Additional robot details */}
-            <div className="absolute top-2 left-2 w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
-            <div className="absolute top-2 right-2 w-2 h-2 bg-green-400 rounded-full"></div>
+            {/* Brain icon overlay for thinking */}
+            {robotMood === 'thinking' && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Brain className="h-8 w-8 text-white/60 animate-pulse" />
+              </div>
+            )}
           </div>
 
-          {/* Robot antenna */}
-          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-            <div className="w-1 h-4 bg-slate-400 rounded-full"></div>
-            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-cyan-400 rounded-full animate-pulse"></div>
-          </div>
+          {/* Status indicators */}
+          <div className="absolute top-1 left-1 w-2 h-2 bg-green-300 rounded-full animate-pulse"></div>
+          <div className="absolute top-1 right-1 w-2 h-2 bg-blue-300 rounded-full"></div>
 
           {/* Processing indicators */}
           {robotMood === 'thinking' && (
             <>
-              <div className="absolute top-1/2 left-1 w-1 h-6 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
-              <div className="absolute top-1/2 right-1 w-1 h-6 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '200ms' }}></div>
+              <div className="absolute left-0 top-1/2 w-1 h-4 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
+              <div className="absolute right-0 top-1/2 w-1 h-4 bg-white/60 rounded-full animate-pulse" style={{ animationDelay: '200ms' }}></div>
             </>
           )}
 
           {/* Excitement particles */}
           {robotMood === 'excited' && (
             <>
-              <div className="absolute -top-2 -left-2 w-2 h-2 bg-yellow-300 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="absolute -top-1 -right-2 w-1 h-1 bg-cyan-300 rounded-full animate-bounce" style={{ animationDelay: '200ms' }}></div>
-              <div className="absolute -bottom-2 left-3 w-1 h-1 bg-green-300 rounded-full animate-bounce" style={{ animationDelay: '400ms' }}></div>
+              <Sparkles className="absolute -top-1 -left-1 w-3 h-3 text-yellow-300 animate-bounce" style={{ animationDelay: '0ms' }} />
+              <Sparkles className="absolute -top-1 -right-1 w-2 h-2 text-cyan-300 animate-bounce" style={{ animationDelay: '200ms' }} />
+              <Sparkles className="absolute -bottom-1 left-2 w-2 h-2 text-green-300 animate-bounce" style={{ animationDelay: '400ms' }} />
             </>
           )}
 
-          {/* Metallic shine effect */}
-          <div className="absolute inset-2 rounded-xl bg-gradient-to-t from-transparent via-white/20 to-white/40 pointer-events-none"></div>
+          {/* Glass morphism overlay */}
+          <div className="absolute inset-2 rounded-xl bg-gradient-to-t from-transparent via-white/10 to-white/20 pointer-events-none"></div>
         </div>
 
         {/* Notification indicator */}
         {!isOpen && (
-          <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-red-400 to-pink-500 rounded-full animate-ping shadow-xl">
-            <div className="absolute inset-0 w-6 h-6 bg-gradient-to-r from-red-500 to-pink-600 rounded-full animate-pulse"></div>
-            <div className="absolute inset-1 w-4 h-4 bg-white rounded-full flex items-center justify-center">
-              <MessageCircle size={12} className="text-red-500" />
+          <div className="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-r from-red-400 to-pink-500 rounded-full animate-ping shadow-xl">
+            <div className="absolute inset-0 w-5 h-5 bg-gradient-to-r from-red-500 to-pink-600 rounded-full animate-pulse"></div>
+            <div className="absolute inset-1 w-3 h-3 bg-white rounded-full flex items-center justify-center">
+              <MessageCircle size={10} className="text-red-500" />
             </div>
           </div>
         )}
 
-        {/* Hover glow effect */}
-        <div className="absolute inset-0 rounded-2xl border-2 border-cyan-400/50 opacity-0 hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+        {/* Hover glow effect matching site colors */}
+        <div className="absolute inset-0 rounded-2xl border-2 border-indigo-400/50 opacity-0 hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
         
         {/* Ambient glow */}
-        <div className="absolute inset-0 rounded-2xl bg-cyan-400/20 blur-xl opacity-50 animate-pulse -z-10"></div>
+        <div className="absolute inset-0 rounded-2xl bg-indigo-400/20 blur-xl opacity-50 animate-pulse -z-10"></div>
       </div>
     </div>
   );
