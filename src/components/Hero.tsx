@@ -86,7 +86,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Main heading with enhanced typography - removed glow effect */}
+          {/* Main heading with enhanced typography */}
           <div className="space-y-8 animate-slide-up">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] tracking-tight">
               Explore the
@@ -166,8 +166,8 @@ const Hero: React.FC = () => {
             ))}
           </div>
 
-          {/* Trust indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-12 pt-16 animate-fade-in" style={{ animationDelay: '1.2s' }}>
+          {/* Trust indicators with proper spacing */}
+          <div className="flex flex-wrap justify-center items-center gap-12 pt-20 pb-8 animate-fade-in" style={{ animationDelay: '1.2s' }}>
             <div className="flex items-center space-x-3 text-gray-300 bg-white/5 rounded-full px-6 py-3">
               <Zap className="h-6 w-6 text-yellow-400" />
               <span className="font-semibold text-lg">AI-Powered Learning</span>
